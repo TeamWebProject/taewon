@@ -1,6 +1,5 @@
 package com.webProject.webProject.Review;
 
-import com.webProject.webProject.ReviewTest.ReviewTest;
 import com.webProject.webProject.Store.Store;
 import com.webProject.webProject.User.User;
 import lombok.RequiredArgsConstructor;
