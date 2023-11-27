@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -40,10 +41,22 @@ public class StoreController {
     }
 
     @GetMapping("/detail")
-    public String detail(){
+    public String detail(Model model) {
+
+        // 가게의 가짜 데이터
+        Store fakeStore = new Store();
+        fakeStore.setId(1); //
+        fakeStore.setName("한솥");
+        fakeStore.setContent("내용");
+        fakeStore.setCategory("한식/도시락");
+        fakeStore.setRoadAddress("둔산동");
+        fakeStore.setCreateDate(LocalDateTime.now()); // 현재 날짜와 시간 사용
+
+        // 모델에 가게 정보 추가
+        model.addAttribute("store", fakeStore);
+
         return "store_detail";
     }
-
     @GetMapping("/create")
     public String createStore(StoreForm storeForm){
         return "store_form";
